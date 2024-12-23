@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/legacylibrary.jpg";
 import useAuth from "../Hooks/useAuth";
+import { useState } from "react";
 
 const Navbar = () => {
   const { user, handleSignOut } = useAuth();
@@ -11,23 +12,23 @@ const Navbar = () => {
     });
   };
 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State to manage dropdown visibility
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev); // Toggle the dropdown state
+  };
+
   const Links = (
     <>
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/register">Register</NavLink>
+        <NavLink to="/all-artifacts">All Artifacts</NavLink>
       </li>
       <li>
-        <NavLink to="/login">Login</NavLink>
+        <NavLink to="/addArtifacts">Add Artifacts</NavLink>
       </li>
-      {/* <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li> */}
     </>
   );
 
@@ -69,15 +70,55 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{Links}</ul>
         </div>
-        <div className="navbar-end">
+
+        <div className="navbar-end flex ">
           {user ? (
-            <div onClick={SignOut}>
-              <button>Log Out</button>
+            <div className="navbar-start  max-w-12  z-50">
+              <div className="dropdown ">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn bg-transparent  rounded-full max-w-12  "
+                  onClick={toggleDropdown}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      toggleDropdown();
+                    }
+                  }}
+                >
+                  <div
+                    data-tip={user.displayName}
+                    className="tooltip tooltip-left"
+                  >
+                    <img
+                      className="rounded-full max-w-12  "
+                      src={user.photoURL}
+                      alt=""
+                    />
+                  </div>
+                </div>
+                {isDropdownOpen && (
+                  <ul
+                    tabIndex={0}
+                    className="menu gap-2 menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-1 w-32 -ml-8 absolute p-2 shadow"
+                  >
+                    <li>
+                      <NavLink to="/my-artifacts">My Artifacts</NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/liked-artifacts">Liked Artifacts</NavLink>
+                    </li>
+                    <li>
+                      <button onClick={SignOut}>Log Out</button>
+                    </li>
+                  </ul>
+                )}
+              </div>
             </div>
           ) : (
-            <button>
-              <Link to={"/login"}>Log In</Link>
-            </button>
+            <Link to="/login">
+              <button className="btn btn-outline">Log in</button>
+            </Link>
           )}
         </div>
       </div>

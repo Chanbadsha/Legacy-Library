@@ -10,8 +10,7 @@ import Loader from "../SharedComponents/Loader";
 import Slider from "./Slider";
 
 const Hero = () => {
-  const { user, setUser, createUser, loading, setLoading, handleGoogleSign } =
-    useAuth();
+  const { loading, setLoading } = useAuth();
 
   if (loading) {
     return <Loader></Loader>;
@@ -33,7 +32,6 @@ const Hero = () => {
     };
     fetchData();
   }, []);
-  console.log(sliderData);
 
   return (
     <div className="">

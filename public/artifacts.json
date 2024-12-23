@@ -1,0 +1,107 @@
+[
+  {
+    "artifactName": "Ancient Roman Coin",
+    "artifactImage": "https://i.ibb.co.com/XjnnWVP/Rome-Coin1.jpg",
+    "artifactType": "Documents",
+    "historicalContext": "This coin was used as currency in ancient Rome and reflects the economic practices of the time.",
+    "createdAt": "100 BC",
+    "discoveredAt": "1799",
+    "discoveredBy": "John Smith",
+    "presentLocation": "National Museum of Rome",
+    "artifactAdder": {
+      "name": "Alice Johnson",
+      "email": "alice.johnson@example.com"
+    },
+    "liked": 0
+  },
+  {
+    "artifactName": "Medieval Sword",
+    "artifactImage": "https://i.ibb.co.com/4p9gp3M/Medieval-Sword1.jpg",
+    "artifactType": "Weapons",
+    "historicalContext": "This sword was used by knights during the medieval period and symbolizes chivalry and warfare.",
+    "createdAt": "1200 AD",
+    "discoveredAt": "1850",
+    "discoveredBy": "Emily Davis",
+    "presentLocation": "British Museum",
+    "artifactAdder": {
+      "name": "Bob Brown",
+      "email": "bob.brown@example.com"
+    },
+    "liked": 0
+  },
+  {
+    "artifactName": "Ancient Egyptian Papyrus",
+    "artifactImage": "https://i.ibb.co.com/QXVThFG/Ancient-Egyptian-Papyrus1.jpg",
+    "artifactType": "Writings",
+    "historicalContext": "This papyrus contains ancient Egyptian texts and provides insight into their culture and language.",
+    "createdAt": "300 BC",
+    "discoveredAt": "1922",
+    "discoveredBy": "Howard Carter",
+    "presentLocation": "Egyptian Museum, Cairo",
+    "artifactAdder": {
+      "name": "Charlie Green",
+      "email": "charlie.green@example.com"
+    },
+    "liked": 0
+  },
+  {
+    "artifactName": "Incan Gold Mask",
+    "artifactImage": "https://i.ibb.co.com/B4GJ8gM/Incan-Gold-Mask1.jpg",
+    "artifactType": "Tools",
+    "historicalContext": "This mask was used in Incan rituals and represents the artistry of the civilization.",
+    "createdAt": "1500 AD",
+    "discoveredAt": "1911",
+    "discoveredBy": "Hiram Bingham",
+    "presentLocation": "Yale Peabody Museum",
+    "artifactAdder": {
+      "name": "David White",
+      "email": "david.white@example.com"
+    },
+    "liked": 0
+  },
+  {
+    "artifactName": "Viking Shield",
+    "artifactImage": "https://i.ibb.co.com/1dYX0CL/Viking-Shield1.jpg",
+    "artifactType": "Weapons",
+    "historicalContext": "This shield was used by Vikings in battle and showcases their craftsmanship.",
+    "createdAt": "800 AD",
+    "discoveredAt": "1852",
+    "discoveredBy": "Archaeologists in Norway",
+    "presentLocation": "Norwegian Museum of Cultural History",
+    "artifactAdder": {
+      "name": "Eva Black",
+      "email": "eva.black@example.com"
+    },
+    "liked": 0
+  },
+  {
+    "artifactName": "Renaissance Painting",
+    "artifactImage": "https://i.ibb.co.com/QPmDW9m/Renaissance-Painting1.jpg",
+    "artifactType": "Documents",
+    "historicalContext": "This painting represents the artistic achievements of the Renaissance period.",
+    "createdAt": "1500 AD",
+    "discoveredAt": "Unknown",
+    "discoveredBy": "Unknown",
+    "presentLocation": "Louvre Museum",
+    "artifactAdder": {
+      "name": "Frank Blue",
+      "email": "frank.blue@example.com"
+    },
+    "liked": 0
+  },
+  {
+    "artifactName": "Ancient Greek Vase",
+    "artifactImage": "https://i.ibb.co.com/LdXPXrG/Ancient-Greek-Vase1.jpg",
+    "artifactType": "Tools",
+    "historicalContext": "This vase was used in ancient Greek ceremonies and reflects their artistic style.",
+    "createdAt": "500 BC",
+    "discoveredAt": "1800",
+    "discoveredBy": "Archaeologists in Greece",
+    "presentLocation": "National Archaeological Museum, Athens",
+    "artifactAdder": {
+      "name": "Grace Red",
+      "email": "grace.red@example.com"
+    },
+    "liked": 0
+  }
+]
