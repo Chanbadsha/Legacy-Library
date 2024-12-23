@@ -3,7 +3,13 @@ import logo from "../assets/legacylibrary.jpg";
 import useAuth from "../Hooks/useAuth";
 
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, handleSignOut } = useAuth();
+
+  const SignOut = () => {
+    handleSignOut().then((result) => {
+      console.log(result);
+    });
+  };
 
   const Links = (
     <>
@@ -65,7 +71,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <div>
+            <div onClick={SignOut}>
               <button>Log Out</button>
             </div>
           ) : (

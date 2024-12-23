@@ -7,7 +7,8 @@ import Loader from "../SharedComponents/Loader";
 import { FaFacebook, FaGoogle, FaTwitter } from "react-icons/fa";
 
 const Register = () => {
-  const { user, setUser, createUser, loading, setLoading } = useAuth();
+  const { user, setUser, createUser, loading, setLoading, handleGoogleSign } =
+    useAuth();
 
   if (loading) {
     return <Loader></Loader>;
@@ -15,13 +16,14 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setLoading(true);
+
+    setLoading(true);
     if (user) {
+      setLoading(false);
       return toast.error("You have already logged in");
     }
     const formData = new FormData(e.target);
     const userInfo = Object.fromEntries(formData.entries());
-    console.log(userInfo.email);
 
     // Check for at least one uppercase letter
     const hasUppercase = (password) => /[A-Z]/.test(userInfo.password);
@@ -36,14 +38,17 @@ const Register = () => {
     // Combined password validation function
 
     if (!hasUppercase(userInfo.password)) {
+      setLoading(false);
       return toast.error("Password must have at least one uppercase letter.");
     }
 
     if (!hasLowercase(userInfo.password)) {
+      setLoading(false);
       return toast.error("Password must have at least one lowercase letter.");
     }
 
     if (!hasMinimumLength(userInfo.password)) {
+      setLoading(false);
       return toast.error("Password must be at least 6 characters long.");
     }
 
@@ -52,10 +57,14 @@ const Register = () => {
       .then((result) => {
         notify("Registration successful! Welcome!");
         setUser(result.user);
+
         navigate("/");
       })
       .catch((error) => {
         toast.error(error.message.slice(17));
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -65,8 +74,20 @@ const Register = () => {
 
   const handleGoogle = () => {
     if (user) {
+      setLoading(false);
       return toast.error("You have already logged in");
     }
+    handleGoogleSign()
+      .then((result) => {
+        setUser(result.user);
+        notify("Registration successful! Welcome!");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.message);
+        setUser(null);
+      });
   };
 
   const notify = (message) => {
