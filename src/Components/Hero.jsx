@@ -1,18 +1,40 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-// import "./styles.css";
-
-// import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import useAuth from "../Hooks/useAuth";
+import Loader from "../SharedComponents/Loader";
+import Slider from "./Slider";
 
 const Hero = () => {
+  const { user, setUser, createUser, loading, setLoading, handleGoogleSign } =
+    useAuth();
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
+  const [sliderData, setSliderData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("../slider.json");
+        const data = await response.json();
+
+        setSliderData(data);
+      } catch (error) {
+        setSliderData([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+  console.log(sliderData);
+
   return (
     <div className="">
       <Swiper
@@ -29,15 +51,11 @@ const Hero = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        {sliderData.map((slider) => (
+          <SwiperSlide>
+            <Slider sliderData={slider}></Slider>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
