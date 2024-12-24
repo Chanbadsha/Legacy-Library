@@ -21,7 +21,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-artifacts",
-        element: <MyArtifacts />,
+        element: (
+          <PrivateRoutes>
+            <MyArtifacts />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/liked-artifacts",

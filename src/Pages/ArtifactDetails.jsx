@@ -1,10 +1,14 @@
+import axios from "axios";
 import React, { useEffect, useId, useState } from "react";
 import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
+import useAuth from "../Hooks/useAuth";
 
 const ArtifactDetailPage = () => {
+  const { user } = useAuth();
+  const userId = user.email;
   const artifactData = useLoaderData();
-  const userId = "uw3er12";
+
   const {
     artifactName,
     artifactImage,
@@ -26,7 +30,6 @@ const ArtifactDetailPage = () => {
       setIsLiked(true);
       return;
     }
-    setIsLiked(false);
   }, []);
 
   const [currentLikeCount, setCurrentLikeCount] = useState(likeCount);
@@ -44,28 +47,33 @@ const ArtifactDetailPage = () => {
       setLoading(false);
       return;
     }
-
-    fetch(`http://localhost:50000/updateLike/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userId,
-        likeCount: updatedLikeCount,
-      }),
-    })
-      .then((response) => {
-        if (response.ok) {
-          setCurrentLikeCount(updatedLikeCount);
-          setIsLiked(!isLiked);
-        } else {
-          toast.error("You have already liked");
+    axios
+      .put(
+        `http://localhost:50000/updateLike/${id}`,
+        {
+          userId,
+          likeCount: updatedLikeCount,
+        },
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-        setLoading(false);
+      )
+      .then((response) => {
+        setCurrentLikeCount(updatedLikeCount);
+
+        setIsLiked(!isLiked);
       })
       .catch((error) => {
-        console.error(error);
+        if (error.response && error.response.status === 400) {
+          toast.error("You have already liked");
+        } else {
+          console.error(error);
+        }
+      })
+      .finally(() => {
         setLoading(false);
       });
   };
