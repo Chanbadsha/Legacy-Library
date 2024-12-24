@@ -39,6 +39,12 @@ const ArtifactDetailPage = () => {
       ? currentLikeCount - 1
       : currentLikeCount + 1;
 
+    if (!userId) {
+      console.error("User is not logged in.");
+      setLoading(false);
+      return;
+    }
+
     fetch(`http://localhost:50000/updateLike/${id}`, {
       method: "PUT",
       headers: {

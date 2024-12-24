@@ -2,13 +2,14 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/legacylibrary.jpg";
 import useAuth from "../Hooks/useAuth";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, handleSignOut } = useAuth();
 
   const SignOut = () => {
     handleSignOut().then((result) => {
-      console.log(result);
+      toast.success("Log out successful");
     });
   };
 
