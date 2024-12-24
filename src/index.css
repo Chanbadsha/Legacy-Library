@@ -1,17 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 
+
 .relative {
-  position: relative; /* Positioning context for the button */
+  position: relative; 
 }
 
 .hover-button {
-  display: none; /* Hide the button by default */
+  display: none;
   position: absolute;
-  bottom: -10; /* Position it at the bottom of the image */
+  bottom: -10;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.7);
   color: white;
   border: none;
   border-radius: 4px;
@@ -20,5 +23,5 @@
 }
 
 .relative:hover .hover-button {
-  display: block; /* Show the button on hover */
-}
+  display: block;
+} */

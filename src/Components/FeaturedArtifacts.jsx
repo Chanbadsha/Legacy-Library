@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../Hooks/useAuth";
 import Loader from "../SharedComponents/Loader";
 import FeaturedCard from "./FeaturedCard";
+import { Link } from "react-router-dom";
 
 const FeaturedArtifacts = () => {
   const { user, loading, setLoading } = useAuth();
@@ -9,6 +10,7 @@ const FeaturedArtifacts = () => {
     return <Loader />;
   }
   const [artifactsData, setArtifactsData] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -25,6 +27,8 @@ const FeaturedArtifacts = () => {
     };
     fetchData();
   }, []);
+
+  const sortedArtifacts = artifactsData.sort((a, b) => b.liked - a.liked);
 
   return (
     <div
@@ -50,10 +54,17 @@ const FeaturedArtifacts = () => {
         </div>
       </div>
 
-      <div className="grid max-w-7xl mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-        {artifactsData.map((artifactData) => (
-          <FeaturedCard key={artifactData.id} artifactData={artifactData} />
-        ))}
+      <div className="max-w-7xl mx-auto">
+        <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+          {sortedArtifacts.slice(0, 6).map((artifactData) => (
+            <FeaturedCard key={artifactData._id} artifactData={artifactData} />
+          ))}
+        </div>
+        <div className="text-center items-center justify-center pb-6 pt-4 ">
+          <Link to="/all-artifacts" className="w-44 btn btn-secondary">
+            View All
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import LikedArtifacts from "../Pages/LikedArtifacts";
 import AllArtifacts from "../Pages/AllArtifacts";
 import AddArtifacts from "../Pages/AddArtifacts";
 import PrivateRoutes from "../Hooks/PrivateRoutes";
+import ArtifactDetails from "../Pages/ArtifactDetails";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,12 @@ const router = createBrowserRouter([
       {
         path: "/all-artifacts",
         element: <AllArtifacts></AllArtifacts>,
+        loader: async () => {
+          const data = await fetch("../artifacts.json");
+          const cards = await data.json();
+
+          return cards;
+        },
       },
       {
         path: "/addArtifacts",
@@ -45,6 +52,20 @@ const router = createBrowserRouter([
             <AddArtifacts></AddArtifacts>
           </PrivateRoutes>
         ),
+      },
+      {
+        path: `/artifactsDetail/:id`,
+        element: (
+          <PrivateRoutes>
+            <ArtifactDetails></ArtifactDetails>
+          </PrivateRoutes>
+        ),
+        loader: async () => {
+          const data = await fetch("../artifacts.json");
+          const cards = await data.json();
+
+          return cards;
+        },
       },
     ],
   },

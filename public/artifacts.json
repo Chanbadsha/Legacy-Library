@@ -12,7 +12,7 @@
       "name": "Alice Johnson",
       "email": "alice.johnson@example.com"
     },
-    "liked": 0
+    "liked": 3
   },
   {
     "artifactName": "Medieval Sword",
@@ -42,7 +42,7 @@
       "name": "Charlie Green",
       "email": "charlie.green@example.com"
     },
-    "liked": 0
+    "liked": 6
   },
   {
     "artifactName": "Incan Gold Mask",
@@ -57,7 +57,7 @@
       "name": "David White",
       "email": "david.white@example.com"
     },
-    "liked": 0
+    "liked": 9
   },
   {
     "artifactName": "Viking Shield",
