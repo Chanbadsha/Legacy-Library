@@ -5,30 +5,39 @@ import FeaturedCard from "./FeaturedCard";
 import { Link } from "react-router-dom";
 
 const FeaturedArtifacts = () => {
-  const { user, loading, setLoading } = useAuth();
-  if (loading) {
-    return <Loader />;
-  }
+  const { loading, setLoading } = useAuth();
   const [artifactsData, setArtifactsData] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
-        const response = await fetch("../artifacts.json");
+        const response = await fetch(`http://localhost:50000/artifactsData`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch artifacts data.");
+        }
         const data = await response.json();
-
         setArtifactsData(data);
-      } catch (error) {
-        console.log(error);
+        setError(null);
+      } catch (err) {
+        console.error(err);
         setArtifactsData([]);
+        setError(err.message);
       } finally {
         setLoading(false);
       }
     };
     fetchData();
-  }, []);
+  }, [setLoading]);
 
-  const sortedArtifacts = artifactsData.sort((a, b) => b.liked - a.liked);
+  if (loading) {
+    return <Loader />;
+  }
+
+  const sortedArtifacts = artifactsData.sort(
+    (a, b) => b.likeCount - a.likeCount
+  );
 
   return (
     <div
@@ -55,16 +64,31 @@ const FeaturedArtifacts = () => {
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-          {sortedArtifacts.slice(0, 6).map((artifactData) => (
-            <FeaturedCard key={artifactData._id} artifactData={artifactData} />
-          ))}
-        </div>
-        <div className="text-center items-center justify-center pb-6 pt-4 ">
-          <Link to="/all-artifacts" className="w-44 btn btn-secondary">
-            View All
-          </Link>
-        </div>
+        {error ? (
+          <div className="text-center text-red-500 font-bold p-6">
+            Error: {error}
+          </div>
+        ) : artifactsData.length > 0 ? (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+              {sortedArtifacts.slice(0, 6).map((artifactData) => (
+                <FeaturedCard
+                  key={artifactData._id || artifactData.artifactName}
+                  artifactData={artifactData}
+                />
+              ))}
+            </div>
+            <div className="text-center items-center justify-center pb-6 pt-4">
+              <Link to="/all-artifacts" className="w-44 btn btn-secondary">
+                View All
+              </Link>
+            </div>
+          </>
+        ) : (
+          <div className="text-center text-gray-600 font-bold p-6">
+            No artifacts available.
+          </div>
+        )}
       </div>
     </div>
   );

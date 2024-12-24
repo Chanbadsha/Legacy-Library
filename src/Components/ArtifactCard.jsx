@@ -10,11 +10,11 @@ const ArtifactCard = ({ artifactData }) => {
     createdAt,
     discoveredAt,
     presentLocation,
+    _id,
   } = artifactData || {};
 
-  const id = "sample";
   return (
-    <div className=" flex flex-col  max-w-sm mx-auto my-6 shadow-xl rounded-lg overflow-hidden ">
+    <div className=" flex flex-col  w-full mx-auto my-6 shadow-xl rounded-lg overflow-hidden ">
       <div className="relative">
         <img
           src={artifactImage}
@@ -49,7 +49,7 @@ const ArtifactCard = ({ artifactData }) => {
         </p>
       </div>
       <div className=" px-6 py-3 fle  border-t border-blue-200">
-        <Link to={`/artifactsDetail/${id}`}>
+        <Link to={`/artifactsDetail/${_id}`}>
           {" "}
           <button className="w-full btn btn-outline py-2   rounded transition duration-300">
             View Details

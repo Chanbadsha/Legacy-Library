@@ -12,7 +12,7 @@
       "name": "Alice Johnson",
       "email": "alice.johnson@example.com"
     },
-    "liked": 3
+    "likeCount": 3
   },
   {
     "artifactName": "Medieval Sword",

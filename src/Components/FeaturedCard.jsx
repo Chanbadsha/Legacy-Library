@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const FeaturedCard = ({ artifactData }) => {
-  const { artifactName, artifactImage, historicalContext, liked } =
+  const { artifactName, artifactImage, historicalContext, likeCount, _id } =
     artifactData || {};
-  const id = "sample";
+
   return (
     <div className="card bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
       <div className="relative">
@@ -17,12 +17,12 @@ const FeaturedCard = ({ artifactData }) => {
       <div className="card-body p-4">
         <h2 className="card-title text-2xl font-bold text-gray-800 flex justify-between items-center">
           {artifactName}
-          <div className="badge badge-secondary">{liked}</div>
+          <div className="badge badge-secondary">{likeCount}</div>
         </h2>
         <p className="text-gray-600 mt-2">{historicalContext}</p>
         <div className=" mt-4">
           <Link
-            to={`/artifactsDetail/${id}`}
+            to={`/artifactsDetail/${_id}`}
             className="w-full btn btn-outline btn-success"
           >
             View Details

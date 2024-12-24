@@ -1,6 +1,7 @@
 import Lottie from "lottie-react";
 import addLottie from "../assets/lottie/addPage.json";
 import useAuth from "../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const AddArtifacts = () => {
   const { user } = useAuth();
@@ -16,7 +17,22 @@ const AddArtifacts = () => {
       name,
       email,
     };
+    finalData.likedBy = [];
     console.log(finalData);
+
+    // Add to Mongodb
+
+    fetch("http://localhost:50000/addArtifacts", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(finalData),
+    })
+      .then((result) => {
+        toast.success("Successfully Added");
+      })
+      .catch((error) => console.log(error));
   };
 
   return (

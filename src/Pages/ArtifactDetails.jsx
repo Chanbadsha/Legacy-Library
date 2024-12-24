@@ -1,23 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useId, useState } from "react";
+import toast from "react-hot-toast";
+import { useLoaderData } from "react-router-dom";
 
 const ArtifactDetailPage = () => {
-  const artifactData = {
-    artifactName: "Incan Gold Mask",
-    artifactImage: "https://i.ibb.co.com/B4GJ8gM/Incan-Gold-Mask1.jpg",
-    artifactType: "Tools",
-    historicalContext:
-      "This mask was used in Incan rituals and represents the artistry of the civilization. Crafted from gold, it reflects the Incan reverence for the sun god Inti, as gold was considered sacred. The intricate design showcases the skill of Incan artisans, who were adept at working with precious metals. Masks like this were often used in ceremonial practices and as burial artifacts for important individuals. They symbolize the Incan belief in the connection between the spiritual and physical worlds. The mask is a testament to the cultural and artistic achievements of the Incan Empire.",
-    createdAt: "1500 AD",
-    discoveredAt: "1911",
-    discoveredBy: "Hiram Bingham",
-    presentLocation: "Yale Peabody Museum",
-    artifactAdder: {
-      name: "David White",
-      email: "david.white@example.com",
-    },
-    liked: 9,
-  };
-
+  const artifactData = useLoaderData();
+  const userId = "uw3er12";
   const {
     artifactName,
     artifactImage,
@@ -28,15 +15,53 @@ const ArtifactDetailPage = () => {
     discoveredBy,
     presentLocation,
     artifactAdder,
-    liked,
+    likeCount,
+    _id,
+    likedBy,
   } = artifactData;
 
-  const [likeCount, setLikeCount] = useState(liked);
-  const [isLiked, setIsLiked] = useState(false);
+  useEffect(() => {
+    const likedUser = likedBy?.find((user) => user == userId);
+    if (likedUser) {
+      setIsLiked(true);
+      return;
+    }
+    setIsLiked(false);
+  }, []);
 
-  const handleLikeToggle = () => {
-    setIsLiked(!isLiked);
-    setLikeCount((prev) => (isLiked ? prev - 1 : prev + 1));
+  const [currentLikeCount, setCurrentLikeCount] = useState(likeCount);
+  const [isLiked, setIsLiked] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleLikeToggle = (id) => {
+    setLoading(true);
+    const updatedLikeCount = isLiked
+      ? currentLikeCount - 1
+      : currentLikeCount + 1;
+
+    fetch(`http://localhost:50000/updateLike/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId,
+        likeCount: updatedLikeCount,
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          setCurrentLikeCount(updatedLikeCount);
+          setIsLiked(!isLiked);
+        } else {
+          toast.error("You have already liked");
+        }
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
   };
 
   return (
@@ -57,8 +82,8 @@ const ArtifactDetailPage = () => {
         </div>
       </div>
       {/* Content Section */}
-      <div className=" px-4 flex items-center justify-center py-8">
-        <div className=" max-w-6xl flex-col lg:flex-row w-full bg-white shadow-xl rounded-lg overflow-hidden flex">
+      <div className="px-4 flex items-center justify-center py-8">
+        <div className="max-w-6xl flex-col lg:flex-row w-full bg-white shadow-xl rounded-lg overflow-hidden flex">
           {/* Left Image Section */}
           <div className="lg:w-1/2">
             <img
@@ -113,17 +138,18 @@ const ArtifactDetailPage = () => {
               {/* Like Button */}
               <div className="flex items-center">
                 <button
-                  onClick={handleLikeToggle}
+                  onClick={() => handleLikeToggle(_id)}
+                  disabled={loading}
                   className={`px-5 py-2 rounded-lg font-semibold transition-transform transform ${
                     isLiked
                       ? "bg-green-500 hover:bg-green-600 text-white"
                       : "bg-blue-500 hover:bg-blue-600 text-white"
                   } hover:scale-105`}
                 >
-                  {isLiked ? "Dislike" : "Like"}
+                  {loading ? "Loading..." : isLiked ? "Dislike" : "Like"}
                 </button>
                 <p className="ml-4 text-lg font-bold text-gray-800">
-                  {likeCount} {likeCount === 1 ? "Like" : "Likes"}
+                  {currentLikeCount} {currentLikeCount === 1 ? "Like" : "Likes"}
                 </p>
               </div>
             </div>

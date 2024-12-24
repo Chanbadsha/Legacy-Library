@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         path: "/all-artifacts",
         element: <AllArtifacts></AllArtifacts>,
         loader: async () => {
-          const data = await fetch("../artifacts.json");
+          const data = await fetch("http://localhost:50000/artifactsData");
           const cards = await data.json();
 
           return cards;
@@ -60,8 +60,10 @@ const router = createBrowserRouter([
             <ArtifactDetails></ArtifactDetails>
           </PrivateRoutes>
         ),
-        loader: async () => {
-          const data = await fetch("../artifacts.json");
+        loader: async ({ params }) => {
+          const data = await fetch(
+            `http://localhost:50000/artifactsData/${params.id}`
+          );
           const cards = await data.json();
 
           return cards;
