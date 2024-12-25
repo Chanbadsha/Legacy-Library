@@ -49,7 +49,7 @@ const ArtifactDetailPage = () => {
     }
     axios
       .put(
-        `http://localhost:50000/updateLike/${id}`,
+        `http://localhost:5000/updateLike/${id}`,
         {
           userId,
           likeCount: updatedLikeCount,

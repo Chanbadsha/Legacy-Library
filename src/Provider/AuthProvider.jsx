@@ -14,7 +14,8 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const [modalArtifact, setModalArtifact] = useState({});
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   // Create User With Email
   const createUser = (email, password) => {
     setLoading(true);
@@ -51,7 +52,7 @@ const AuthProvider = ({ children }) => {
         if (currentUser.email) {
           const user = currentUser.email;
           axios
-            .post("http://localhost:50000/jwt", user, { withCredentials: true })
+            .post("http://localhost:5000/jwt", user, { withCredentials: true })
             .then((result) => {
               setLoading(false);
             })
@@ -62,7 +63,7 @@ const AuthProvider = ({ children }) => {
       } else {
         axios
           .post(
-            "http://localhost:50000/removeJwt",
+            "http://localhost:5000/removeJwt",
             {},
             { withCredentials: true }
           )
@@ -87,6 +88,10 @@ const AuthProvider = ({ children }) => {
     handleSignOut,
     handleGoogleSign,
     loginUser,
+    modalArtifact,
+    setModalArtifact,
+    isButtonDisabled,
+    setIsButtonDisabled,
   };
   return (
     <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>

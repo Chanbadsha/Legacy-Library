@@ -18,11 +18,10 @@ const AddArtifacts = () => {
       email,
     };
     finalData.likedBy = [];
-    console.log(finalData);
 
     // Add to Mongodb
 
-    fetch("http://localhost:50000/addArtifacts", {
+    fetch("http://localhost:5000/addArtifacts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -31,8 +30,9 @@ const AddArtifacts = () => {
     })
       .then((result) => {
         toast.success("Successfully Added");
+        e.target.reset();
       })
-      .catch((error) => console.log(error));
+      .catch((error) => toast.error(error.message));
   };
 
   return (

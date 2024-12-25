@@ -3,27 +3,52 @@ import useAuth from "../Hooks/useAuth";
 import axios from "axios";
 import { CiStar } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
+import EditArtifactsModal from "../Modal/EditArtifactsModal";
+
+import Swal from "sweetalert2";
 
 const MyArtifacts = () => {
-  const { user } = useAuth();
+  const { user, setModalArtifact, setIsButtonDisabled } = useAuth();
   const [MyArtifact, setMyArtifact] = useState([]);
   const navigate = useNavigate();
 
+  const handleDelete = (id) => {
+    console.log(`Delete artifact with ID: ${id}`);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:5000/delete-artifact/${id}`);
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+      }
+    });
+  };
+  const handleView = (id) => {
+    navigate(`/artifactsDetail/${id}`);
+  };
   useEffect(() => {
     axios
-      .get(`http://localhost:50000/my-artifacts?email=${user.email}`, {
+      .get(`http://localhost:5000/my-artifacts?email=${user.email}`, {
         withCredentials: true,
       })
       .then(({ data }) => setMyArtifact(data))
       .catch((error) => console.log(error));
-  }, [user.email]);
+  }, [user.email, handleDelete]);
 
-  const handleEdit = (id) => {
-    console.log(`Edit artifact with ID: ${id}`);
-  };
-
-  const handleDelete = (id) => {
-    console.log(`Delete artifact with ID: ${id}`);
+  const handleEdit = (artifact) => {
+    // console.log(artifact);
+    setIsButtonDisabled(false);
+    setModalArtifact(artifact);
   };
 
   const handleAddArtifact = () => {
@@ -31,9 +56,9 @@ const MyArtifacts = () => {
   };
 
   return (
-    <div className="bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gray-50 pb-8  ">
       <header
-        className="text-center mb-16 py-16"
+        className="text-center  py-16"
         style={{
           backgroundImage: "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)",
         }}
@@ -41,13 +66,15 @@ const MyArtifacts = () => {
         <h1 className="text-4xl font-extrabold text-white leading-tight mb-4">
           My Artifacts
         </h1>
-        <p className="text-xl text-white mt-4 max-w-3xl mx-auto">
+        <p className="lg:text-xl px-2 text-white mt-4 max-w-3xl mx-auto">
           Explore the artifacts you've added. You can update or remove your own
           creations, and manage your collection of historical treasures.
         </p>
+
+        <EditArtifactsModal></EditArtifactsModal>
       </header>
 
-      <main className="max-w-6xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden">
+      <main className="max-w-7xl p-4 mx-auto bg-white shadow-xl rounded-2xl overflow-hidden">
         {MyArtifact.length === 0 ? (
           <div className="text-center py-8">
             <h2 className="text-2xl font-semibold text-gray-800">
@@ -64,11 +91,11 @@ const MyArtifacts = () => {
             </button>
           </div>
         ) : (
-          <ul className="divide-y divide-gray-200 grid md:grid-cols-2 gap-4">
+          <ul className="divide-y divide-gray-200 grid lg:grid-cols-2 gap-4">
             {MyArtifact.map((artifact, index) => (
               <li
                 key={index}
-                className="py-6 px-8 flex justify-between items-start hover:bg-gray-100"
+                className="py-6 px-3  flex gap-4 md:gap-0 justify-between flex-col md:flex-row items-start hover:bg-gray-100"
                 style={{
                   backgroundImage:
                     "linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%)",
@@ -76,7 +103,7 @@ const MyArtifacts = () => {
                 }}
               >
                 {/* Artifact Image */}
-                <div className="w-1/4 h-48 mr-6">
+                <div className="w-full md:w-1/4 h-48 mr-6">
                   <img
                     src={artifact.artifactImage}
                     alt={artifact.artifactName}
@@ -84,9 +111,9 @@ const MyArtifacts = () => {
                   />
                 </div>
 
-                <div className="w-3/4 flex">
+                <div className="md:w-3/4 flex-1 flex flex-col  gap-3">
                   {/* Artifact Details */}
-                  <div className="w-3/4">
+                  <div className="">
                     <h2 className="text-xl font-semibold text-gray-800 mb-2">
                       {artifact.artifactName}
                     </h2>
@@ -96,16 +123,23 @@ const MyArtifacts = () => {
                   </div>
 
                   {/* Artifact Actions */}
-                  <div className="flex flex-col justify-between items-center space-y-4">
+                  <div className="flex flex-col justify-between  space-y-4">
                     <div className="flex space-x-4">
                       <button
-                        onClick={() => handleEdit(artifact.id)}
+                        onClick={() => handleView(artifact._id)}
+                        className="bg-green-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-green-600 transition duration-300 transform hover:scale-105"
+                      >
+                        View
+                      </button>
+                      <a
+                        href="#my_modal_8"
+                        onClick={() => handleEdit(artifact)}
                         className="bg-yellow-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-yellow-600 transition duration-300 transform hover:scale-105"
                       >
                         Edit
-                      </button>
+                      </a>
                       <button
-                        onClick={() => handleDelete(artifact.id)}
+                        onClick={() => handleDelete(artifact._id)}
                         className="bg-red-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-red-600 transition duration-300 transform hover:scale-105"
                       >
                         Delete
