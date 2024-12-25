@@ -9,11 +9,13 @@ import AllArtifacts from "../Pages/AllArtifacts";
 import AddArtifacts from "../Pages/AddArtifacts";
 import PrivateRoutes from "../Hooks/PrivateRoutes";
 import ArtifactDetails from "../Pages/ArtifactDetails";
+import NotFoundPage from "../Pages/NotFoundPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <NotFoundPage />,
     children: [
       {
         path: "/",
@@ -29,7 +31,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/liked-artifacts",
-        element: <LikedArtifacts />,
+        element: (
+          <PrivateRoutes>
+            <LikedArtifacts />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/register",

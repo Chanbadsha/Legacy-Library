@@ -6,9 +6,14 @@ import { useNavigate } from "react-router-dom";
 import EditArtifactsModal from "../Modal/EditArtifactsModal";
 
 import Swal from "sweetalert2";
+import Loader from "../SharedComponents/Loader";
 
 const MyArtifacts = () => {
-  const { user, setModalArtifact, setIsButtonDisabled } = useAuth();
+  const { user, loading, setModalArtifact, setIsButtonDisabled } = useAuth();
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
   const [MyArtifact, setMyArtifact] = useState([]);
   const navigate = useNavigate();
 

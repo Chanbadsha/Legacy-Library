@@ -58,6 +58,7 @@ const AuthProvider = ({ children }) => {
             })
             .catch((error) => {
               console.log(error);
+              setLoading(false);
             });
         }
       } else {
@@ -70,7 +71,10 @@ const AuthProvider = ({ children }) => {
           .then((result) => {
             setLoading(false);
           })
-          .catch((error) => console.log(error));
+          .catch((error) => {
+            console.log(error);
+            setLoading(false);
+          });
 
         setUser(null);
       }
