@@ -2,6 +2,10 @@
 
 A web application built with React.js on the frontend and Express.js on the backend. The platform offers a modern and responsive design powered by Tailwind CSS and Daisy UI. It also utilizes various additional libraries like React Icons, LottieFiles, React Hot Toast, and Animation.css to enhance the user experience.
 
+## Live Demo
+
+You can view the live version of the project here: [Live Demo](https://legacylibrary-906c1.web.app) _(Replace `#` with the actual link to your live project)_
+
 ## Features
 
 ### Frontend:
