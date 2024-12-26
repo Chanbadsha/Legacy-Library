@@ -4,7 +4,6 @@ import axios from "axios";
 import { CiStar } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 
-import Swal from "sweetalert2";
 import Loader from "../SharedComponents/Loader";
 
 const LikedArtifacts = () => {
@@ -21,18 +20,22 @@ const LikedArtifacts = () => {
   };
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/liked-artifacts?email=${user.email}`, {
-        withCredentials: true,
-      })
+      .get(
+        `https://assginment-11-server-rho.vercel.app/liked-artifacts?email=${user.email}`,
+
+        {
+          withCredentials: true,
+        }
+      )
       .then(({ data }) => {
         setMyArtifact(data);
-        setLoading(false); // Stop loading after data is fetched
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
         setLoading(false);
       });
-  }, [user?.email]);
+  }, [user.email]);
 
   const handleAddArtifact = () => {
     navigate("/all-artifacts");

@@ -49,7 +49,7 @@ const ArtifactDetailPage = () => {
     }
     axios
       .put(
-        `http://localhost:5000/updateLike/${id}`,
+        `https://assginment-11-server-rho.vercel.app/updateLike/${id}`,
         {
           userId,
           likeCount: updatedLikeCount,
@@ -83,10 +83,10 @@ const ArtifactDetailPage = () => {
       {/* Header Section */}
       <div className="w-full bg-gray-100 py-6 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-3xl lg:text-4xl font-bold text-gray-800">
+          <h1 className="text-2xl lg:text-4xl font-bold text-gray-800">
             Explore the {artifactName} in Detail
           </h1>
-          <p className="mt-2 md:text-xl text-gray-600">
+          <p className="mt-2 text-[14px] text-justify md:text-center md:px-4 md:text-xl text-gray-600">
             Discover the fascinating history and significance of this
             <span className="font-semibold"> {artifactName.toLowerCase()}</span>
             . Uncover its origins, purpose, and unique features that define its
@@ -109,7 +109,7 @@ const ArtifactDetailPage = () => {
 
           {/* Right Detail Section */}
           <div className="lg:w-1/2 px-3 py-8 space-y-2 lg:space-y-4">
-            <h1 className="text-2xl lg:text-4xl font-extrabold text-gray-800 ">
+            <h1 className="text-xl md:text-2xl lg:text-4xl font-extrabold text-gray-800 ">
               {artifactName}
             </h1>
             <p className="text-md text-gray-600 ">

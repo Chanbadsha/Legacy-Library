@@ -21,7 +21,7 @@ const AddArtifacts = () => {
 
     // Add to Mongodb
 
-    fetch("http://localhost:5000/addArtifacts", {
+    fetch("https://assginment-11-server-rho.vercel.app/addArtifacts", {
       method: "POST",
       headers: {
         "content-type": "application/json",

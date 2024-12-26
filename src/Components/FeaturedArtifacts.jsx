@@ -13,7 +13,9 @@ const FeaturedArtifacts = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`http://localhost:5000/artifactsData`);
+        const response = await fetch(
+          `https://assginment-11-server-rho.vercel.app/artifactsData`
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch artifacts data.");
         }
@@ -49,10 +51,10 @@ const FeaturedArtifacts = () => {
       <div className="hero bg-white bg-opacity-90 rounded-lg shadow-lg">
         <div className="hero-content text-center p-10">
           <div className="max-w-6xl">
-            <h1 className="text-6xl font-extrabold text-gray-800 drop-shadow-lg">
+            <h1 className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-gray-800 drop-shadow-lg">
               Hall of Popularity
             </h1>
-            <p className="py-6 text-xl text-gray-700">
+            <p className="py-6 lg:text-xl text-gray-700">
               Welcome to the Hall of Popularity, where the artifacts that have
               captured the hearts of our users shine brightest! Explore this
               curated selection of the most liked items, each with its own

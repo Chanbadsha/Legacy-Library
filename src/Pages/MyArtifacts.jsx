@@ -18,7 +18,6 @@ const MyArtifacts = () => {
   const navigate = useNavigate();
 
   const handleDelete = (id) => {
-    console.log(`Delete artifact with ID: ${id}`);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -29,12 +28,15 @@ const MyArtifacts = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/delete-artifact/${id}`);
+        axios.delete(
+          `https://assginment-11-server-rho.vercel.app/delete-artifact/${id}`
+        );
         Swal.fire({
           title: "Deleted!",
           text: "Your file has been deleted.",
           icon: "success",
         });
+        navigate("/all-artifacts");
       }
     });
   };
@@ -42,16 +44,27 @@ const MyArtifacts = () => {
     navigate(`/artifactsDetail/${id}`);
   };
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/my-artifacts?email=${user.email}`, {
-        withCredentials: true,
-      })
-      .then(({ data }) => setMyArtifact(data))
-      .catch((error) => console.log(error));
-  }, [user.email, handleDelete]);
+    const fetchArtifacts = async () => {
+      try {
+        const response = await axios.get(
+          `https://assginment-11-server-rho.vercel.app/my-artifacts?email=${user?.email}`,
+          {
+            withCredentials: true,
+          }
+        );
+        // console.log(response);
+        setMyArtifact(response.data);
+      } catch (error) {
+        console.error("Failed to fetch artifacts:", error.message);
+      }
+    };
+
+    if (user?.email) {
+      fetchArtifacts();
+    }
+  }, [user?.email, handleDelete]);
 
   const handleEdit = (artifact) => {
-    // console.log(artifact);
     setIsButtonDisabled(false);
     setModalArtifact(artifact);
   };
@@ -141,7 +154,7 @@ const MyArtifacts = () => {
                         onClick={() => handleEdit(artifact)}
                         className="bg-yellow-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-yellow-600 transition duration-300 transform hover:scale-105"
                       >
-                        Edit
+                        Update
                       </a>
                       <button
                         onClick={() => handleDelete(artifact._id)}

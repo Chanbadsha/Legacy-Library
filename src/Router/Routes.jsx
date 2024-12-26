@@ -49,7 +49,9 @@ const router = createBrowserRouter([
         path: "/all-artifacts",
         element: <AllArtifacts></AllArtifacts>,
         loader: async () => {
-          const data = await fetch("http://localhost:5000/artifactsData");
+          const data = await fetch(
+            "https://assginment-11-server-rho.vercel.app/artifactsData"
+          );
           const cards = await data.json();
 
           return cards;
@@ -72,7 +74,7 @@ const router = createBrowserRouter([
         ),
         loader: async ({ params }) => {
           const data = await fetch(
-            `http://localhost:5000/artifactsData/${params.id}`
+            `https://assginment-11-server-rho.vercel.app/artifactsData/${params.id}`
           );
           const cards = await data.json();
 

@@ -52,19 +52,20 @@ const AuthProvider = ({ children }) => {
         if (currentUser.email) {
           const user = currentUser.email;
           axios
-            .post("http://localhost:5000/jwt", user, { withCredentials: true })
+            .post("https://assginment-11-server-rho.vercel.app/jwt", user, {
+              withCredentials: true,
+            })
             .then((result) => {
               setLoading(false);
             })
             .catch((error) => {
-              console.log(error);
               setLoading(false);
             });
         }
       } else {
         axios
           .post(
-            "http://localhost:5000/removeJwt",
+            "https://assginment-11-server-rho.vercel.app/removeJwt",
             {},
             { withCredentials: true }
           )
@@ -72,7 +73,6 @@ const AuthProvider = ({ children }) => {
             setLoading(false);
           })
           .catch((error) => {
-            console.log(error);
             setLoading(false);
           });
 

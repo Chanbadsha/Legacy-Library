@@ -6,6 +6,7 @@ import Loader from "../SharedComponents/Loader";
 import useAuth from "../Hooks/useAuth";
 import Lottie from "lottie-react";
 import loginLottie from "../assets/lottie/login.json";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { user, setUser, loading, setLoading, handleGoogleSign, loginUser } =
@@ -38,7 +39,6 @@ const Login = () => {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error.code);
         toast.error(
           "Login unsuccessful. Make sure your information is correct"
         );
@@ -89,6 +89,9 @@ const Login = () => {
       }}
       className="min-h-[calc(100vh-80px)] bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-600 flex items-center justify-center"
     >
+      <Helmet>
+        <title>LegacyLibrary - Login</title>
+      </Helmet>
       <div className="hero-content flex flex-col lg:flex-row items-center gap-10 p-6">
         {/* Info Section */}
         <div className="w-full lg:w-1/2 text-white space-y-6 relative p-8 rounded-lg">

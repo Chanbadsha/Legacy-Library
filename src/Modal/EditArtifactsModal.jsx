@@ -12,14 +12,14 @@ const EditArtifactsModal = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const primaryData = Object.fromEntries(formData.entries());
-    console.log(primaryData);
 
     // Add to Mongodb
 
     axios
       .put(
-        `http://localhost:5000/update-artifact/${modalArtifact._id}`,
-        primaryData
+        `https://assginment-11-server-rho.vercel.app/update-artifact/${modalArtifact._id}`,
+        primaryData,
+        { withCredentials: true }
       )
       .then((result) => {
         toast.success("Successfully Updated");
@@ -29,19 +29,6 @@ const EditArtifactsModal = () => {
         toast.error("Update failed. Try again");
         setIsButtonDisabled(false);
       });
-
-    // fetch("http://localhost:5000//update-artifact", {
-    //   method: "PUT",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(primaryData),
-    // })
-    //   .then((result) => {
-    //     toast.success("Successfully Added");
-    //     setIsButtonDisabled(true);
-    //   })
-    //   .catch((error) => console.log(error));
   };
   const {
     artifactName,
