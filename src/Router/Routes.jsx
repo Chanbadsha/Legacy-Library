@@ -10,11 +10,17 @@ import AddArtifacts from "../Pages/AddArtifacts";
 import PrivateRoutes from "../Hooks/PrivateRoutes";
 import ArtifactDetails from "../Pages/ArtifactDetails";
 import NotFoundPage from "../Pages/NotFoundPage";
+import ScrollToTop from "../Hooks/ScrollToTop";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout></MainLayout>,
+    element: (
+      <>
+        <ScrollToTop />
+        <MainLayout></MainLayout>
+      </>
+    ),
     errorElement: <NotFoundPage />,
     children: [
       {

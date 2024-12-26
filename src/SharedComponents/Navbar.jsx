@@ -3,6 +3,7 @@ import logo from "../assets/legacylibrary.jpg";
 import useAuth from "../Hooks/useAuth";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, handleSignOut } = useAuth();
@@ -30,12 +31,17 @@ const Navbar = () => {
       <li>
         <NavLink to="/addArtifacts">Add Artifacts</NavLink>
       </li>
+      {!user && (
+        <li>
+          <NavLink to="/register">Register</NavLink>
+        </li>
+      )}
     </>
   );
 
   return (
-    <div className=" bg-base-100 fixed top-0 left-0 w-full z-40">
-      <div className="navbar max-w-7xl mx-auto">
+    <div className=" bg-base-100 fixed top-0 left-0 w-full px-2 z-40">
+      <div className="navbar max-w-7xl mx-auto ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -63,13 +69,17 @@ const Navbar = () => {
           </div>
 
           {/* Logo Section */}
-          <div className="btn btn-ghost text-2xl py-2 ">
-            <img className="max-w-20  rounded-full h-full" src={logo} alt="" />
+          <Link to={"/"} className="btn btn-ghost text-xl md:text-2xl py-2 ">
+            <img
+              className="max-w-20 hidden md:block  rounded-full h-full"
+              src={logo}
+              alt=""
+            />
             <h1>LegacyLibrary</h1>
-          </div>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{Links}</ul>
+          <ul className="menu menu-horizontal px-1 gap-2">{Links}</ul>
         </div>
 
         <div className="navbar-end flex ">
@@ -91,17 +101,27 @@ const Navbar = () => {
                     data-tip={user.displayName}
                     className="tooltip tooltip-left"
                   >
-                    <img
-                      className="rounded-full max-w-12  "
-                      src={user.photoURL}
-                      alt=""
-                    />
+                    {user.photoURL && user.photoURL.length > 2 ? (
+                      <img
+                        className="rounded-full max-w-8 md:max-w-12"
+                        src={user.photoURL}
+                        alt={user.displayName || "User"}
+                      />
+                    ) : (
+                      // Fallback content (e.g., a default avatar or nothing)
+                      <div className="rounded-full max-w-12 bg-gray-300 flex items-center justify-center">
+                        <p className="text-xl md:text-2xl">
+                          {" "}
+                          <FaUserCircle />
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
                 {isDropdownOpen && (
                   <ul
                     tabIndex={0}
-                    className="menu gap-2 menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-1 w-32 -ml-8 absolute p-2 shadow"
+                    className="menu gap-2 menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-1 md:w-32 -ml-12  lg:-ml-8 absolute p-2 shadow"
                   >
                     <li>
                       <NavLink to="/my-artifacts">My Artifacts</NavLink>

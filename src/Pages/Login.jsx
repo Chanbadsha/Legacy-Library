@@ -92,9 +92,9 @@ const Login = () => {
       <Helmet>
         <title>LegacyLibrary - Login</title>
       </Helmet>
-      <div className="hero-content flex flex-col lg:flex-row items-center gap-10 p-6">
+      <div className="hero-content flex flex-col lg:flex-row items-center gap-1 p-6">
         {/* Info Section */}
-        <div className="w-full lg:w-1/2 text-white space-y-6 relative p-8 rounded-lg">
+        <div className="w-[80%] lg:w-1/2 text-white space-y-6 relative p-8 rounded-lg">
           <div className="relative z-10">
             <Lottie animationData={loginLottie}></Lottie>
           </div>
