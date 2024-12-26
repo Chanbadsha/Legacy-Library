@@ -6,7 +6,7 @@ const FeaturedCard = ({ artifactData }) => {
     artifactData || {};
 
   return (
-    <div className="card bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+    <div className="card animate__animated animate__zoomIn bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
       <div className="relative">
         <img
           src={artifactImage}

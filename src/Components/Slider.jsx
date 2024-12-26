@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Slider = ({ sliderData }) => {
   const { description, image, title } = sliderData || {};
+  const navigate = useNavigate();
   return (
     <div
       className="hero min-h-[600px] bg-cover bg-center"
@@ -18,7 +19,12 @@ const Slider = ({ sliderData }) => {
           </h1>
           <p className="mb-5">{description}</p>
           <div className="flex gap-4 justify-center items-center">
-            <button className="btn bg-green-500 hover:bg-green-600 text-white text-[12px] md:text-base px-3 md:px-6 py-3 rounded-full shadow-lg font-bold transform transition duration-300 hover:scale-110">
+            <button
+              onClick={() => {
+                navigate("/all-artifacts");
+              }}
+              className="btn bg-green-500 hover:bg-green-600 text-white text-[12px] md:text-base px-3 md:px-6 py-3 rounded-full shadow-lg font-bold transform transition duration-300 hover:scale-110"
+            >
               Get Started
             </button>
           </div>

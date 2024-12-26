@@ -38,28 +38,32 @@ const AddArtifacts = () => {
   return (
     <div className=" bg-gray-100">
       <header className="bg-blue-600 text-white py-6 text-center">
-        <h1 className="text-3xl font-bold">Add New Artifact</h1>
-        <p className="mt-2">Fill out the form below to add a new artifact</p>
+        <h1 className="text-3xl font-bold animate__animated animate__backInRight">
+          Add New Artifact
+        </h1>
+        <p className="mt-2 animate__animated animate__backInLeft">
+          Fill out the form below to add a new artifact
+        </p>
       </header>
 
       <div className="max-w-7xl mx-auto">
         <div className="hero-content flex flex-col lg:flex-row items-center gap-10 p-6">
           {/* Left Image */}
-          <div className="w-full lg:w-1/2 text-white space-y-6 relative p-8 rounded-lg">
+          <div className="w-full animate__animated animate__zoomIn lg:w-1/2 text-white space-y-6 relative p-8 rounded-lg">
             <div className="relative z-10">
               <Lottie animationData={addLottie}></Lottie>
             </div>
           </div>
 
           {/* Right Content */}
-          <div className="container w-full lg:w-1/2 mx-auto p-6">
+          <div className="container animate__animated animate__zoomIn w-full lg:w-1/2 mx-auto p-6">
             <div className="bg-white p-8 shadow-md rounded-lg">
               <form onSubmit={handleSubmit}>
                 {/* Artifact Name */}
                 <div className="mb-4">
                   <label
                     htmlFor="name"
-                    className="block text-lg font-semibold text-gray-700"
+                    className="block  text-lg font-semibold text-gray-700"
                   >
                     Artifact Name
                   </label>
