@@ -101,7 +101,7 @@ const Navbar = () => {
                     data-tip={user.displayName}
                     className="tooltip tooltip-left"
                   >
-                    {user.photoURL && user.photoURL.length > 2 ? (
+                    {user.photoURL && user.photoURL.length > 10 ? (
                       <img
                         className="rounded-full max-w-8 md:max-w-12"
                         src={user.photoURL}

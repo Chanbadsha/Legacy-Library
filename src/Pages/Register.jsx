@@ -5,7 +5,7 @@ import Lottie from "lottie-react";
 import toast, { Toaster } from "react-hot-toast";
 import Loader from "../SharedComponents/Loader";
 import { FaFacebook, FaGoogle, FaTwitter } from "react-icons/fa";
-
+import "animate.css";
 const Register = () => {
   const { user, setUser, createUser, loading, setLoading, handleGoogleSign } =
     useAuth();
@@ -57,7 +57,7 @@ const Register = () => {
       .then((result) => {
         notify("Registration successful! Welcome!");
         setUser(result.user);
-
+        console.log(result.user);
         navigate("/");
       })
       .catch((error) => {
@@ -80,6 +80,7 @@ const Register = () => {
     handleGoogleSign()
       .then((result) => {
         setUser(result.user);
+        console.log(result.user);
         notify("Registration successful! Welcome!");
         navigate("/");
       })
@@ -114,14 +115,14 @@ const Register = () => {
     >
       <div className="hero-content flex flex-col lg:flex-row items-center gap-2 p-6">
         {/* Info Section */}
-        <div className="w-[80%] lg:w-1/2 text-white space-y-6 relative p-8 rounded-lg">
+        <div className="w-[80%]  animate__animated animate__backInLeft  lg:w-1/2 text-white space-y-6 relative p-8 rounded-lg">
           <div className="relative z-10">
             <Lottie animationData={registerLottie}></Lottie>
           </div>
         </div>
 
         {/* Sign Up Form */}
-        <div className="card w-full max-w-md bg-white shadow-lg rounded-lg p-8">
+        <div className="card animate__animated animate__backInRight w-full max-w-md bg-white shadow-lg rounded-lg p-8">
           <h2 className="text-center text-2xl font-semibold text-gray-800 mb-6">
             Create an Account
           </h2>
@@ -170,7 +171,7 @@ const Register = () => {
                 <span className="label-text">PhotoUrl</span>
               </label>
               <input
-                name="photoUrl"
+                name="photoURL"
                 type="text"
                 placeholder="Enter your photoUrl"
                 className="input input-bordered w-full rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"

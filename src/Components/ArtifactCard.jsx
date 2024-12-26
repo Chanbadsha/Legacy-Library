@@ -14,7 +14,7 @@ const ArtifactCard = ({ artifactData }) => {
   } = artifactData || {};
 
   return (
-    <div className=" flex flex-col  w-full mx-auto my-6 shadow-xl rounded-lg overflow-hidden ">
+    <div className=" flex flex-col animate__animated animate__zoomIn w-full mx-auto my-6 shadow-xl rounded-lg overflow-hidden ">
       <div className="relative">
         <img
           src={artifactImage}

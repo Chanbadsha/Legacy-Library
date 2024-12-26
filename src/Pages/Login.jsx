@@ -94,14 +94,14 @@ const Login = () => {
       </Helmet>
       <div className="hero-content flex flex-col lg:flex-row items-center gap-1 p-6">
         {/* Info Section */}
-        <div className="w-[80%] lg:w-1/2 text-white space-y-6 relative p-8 rounded-lg">
+        <div className="w-[80%] animate__animated animate__backInRight lg:w-1/2 text-white space-y-6 relative p-8 rounded-lg">
           <div className="relative z-10">
             <Lottie animationData={loginLottie}></Lottie>
           </div>
         </div>
 
         {/* Login Form */}
-        <div className="card w-full max-w-md bg-white shadow-lg rounded-lg p-8">
+        <div className="card animate__animated animate__backInLeft w-full max-w-md bg-white shadow-lg rounded-lg p-8">
           <h2 className="text-center text-2xl font-semibold text-gray-800 mb-6">
             Login to Your Account
           </h2>

@@ -28,16 +28,18 @@ const AllArtifacts = () => {
   return (
     <div className="max-w-7xl mx-auto">
       {/* Header Section */}
-      <header className="py-8 bg-blue-600 text-white text-center">
-        <h1 className="text-4xl font-bold">All Artifacts</h1>
-        <p className="mt-2 text-lg">
+      <header className="py-8  bg-blue-600 text-white text-center">
+        <h1 className="text-4xl font-bold animate__animated animate__backInLeft">
+          All Artifacts
+        </h1>
+        <p className="mt-2 text-lg animate__animated animate__backInRight">
           Discover a wide range of historical and modern artifacts from across
           the world. Explore, learn, and collect.
         </p>
       </header>
 
       {/* Search Input */}
-      <div className="mt-8 flex justify-center">
+      <div className="mt-8 animate__animated animate__backInLeft flex justify-center">
         <input
           type="text"
           placeholder="Search by Artifact Name"
@@ -48,7 +50,7 @@ const AllArtifacts = () => {
       </div>
 
       {/* Artifacts Grid */}
-      <div className="grid gap-4 grid-cols-1 px-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8">
+      <div className="grid  gap-4 grid-cols-1 px-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8">
         {filteredArtifacts.length > 0 ? (
           filteredArtifacts.map((artifactData, index) => (
             <ArtifactCard key={index} artifactData={artifactData} />
