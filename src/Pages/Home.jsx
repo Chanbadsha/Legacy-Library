@@ -14,6 +14,7 @@ const Home = () => {
       <Hero></Hero>
 
       <FeaturedArtifacts />
+      <Testimonial></Testimonial>
     </div>
   );
 };
