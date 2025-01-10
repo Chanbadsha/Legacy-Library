@@ -31,6 +31,9 @@ const Navbar = () => {
       <li>
         <NavLink to="/addArtifacts">Add Artifacts</NavLink>
       </li>
+      <li>
+        <NavLink to="/about">About Us</NavLink>
+      </li>
       {!user && (
         <li>
           <NavLink to="/register">Register</NavLink>

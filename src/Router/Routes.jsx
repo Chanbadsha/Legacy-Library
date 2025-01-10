@@ -11,6 +11,7 @@ import PrivateRoutes from "../Hooks/PrivateRoutes";
 import ArtifactDetails from "../Pages/ArtifactDetails";
 import NotFoundPage from "../Pages/NotFoundPage";
 import ScrollToTop from "../Hooks/ScrollToTop";
+import About from "../Pages/About";
 
 const router = createBrowserRouter([
   {
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
 
           return cards;
         },
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
     ],
   },
