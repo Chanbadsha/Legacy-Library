@@ -6,19 +6,19 @@ const LatestArticles = () => {
       title: "The Evolution of Artifacts in History",
       description:
         "Explore how artifacts have played a crucial role in understanding historical events.",
-      link: "/articles/evolution-of-artifacts",
+      link: "https://philarchive.org/archive/HEEHOM",
     },
     {
       title: "Modern Technology and Ancient Artifacts",
       description:
         "Learn about the fascinating intersection of modern technology and ancient discoveries.",
-      link: "/articles/technology-and-artifacts",
+      link: "https://magazine.byu.edu/article/modern-technology-gives-new-life-to-ancient-treasures/",
     },
     {
       title: "The Importance of Preserving Historical Sites",
       description:
         "Why it is crucial to preserve historical landmarks and artifacts for future generations.",
-      link: "/articles/preserving-historical-sites",
+      link: "https://aithor.com/essay-examples/the-importance-of-preserving-heritage-sites-for-future-generations",
     },
     {
       title: "Unveiling the Secrets of Ancient Civilizations",
@@ -30,13 +30,13 @@ const LatestArticles = () => {
       title: "Exploring the Role of Museums in Education",
       description:
         "Learn about the pivotal role museums play in educating the public about history and culture.",
-      link: "/articles/museums-and-education",
+      link: "https://journals.ekb.eg/article_303614_8a183783355502845fc3fd485d4e8246.pdf",
     },
     {
       title: "The Future of Digital Preservation of Artifacts",
       description:
         "Delve into the future of digital preservation and how technology is changing the way we preserve history.",
-      link: "/articles/digital-preservation-of-artifacts",
+      link: "https://www.tdl.org/2023/06/the-future-of-digital-preservation-bpe-2023-plenary-talk/",
     },
   ];
 
