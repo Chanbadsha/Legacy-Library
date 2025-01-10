@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet-async";
 
 import Testimonial from "../Components/Testimonial";
 import LatestArticles from "../Components/LatestArticles";
+import About from "./About";
+import Contact from "./Contact";
 
 const Home = () => {
   return (
@@ -16,7 +18,9 @@ const Home = () => {
 
       <FeaturedArtifacts />
       <Testimonial></Testimonial>
+      <About></About>
       <LatestArticles></LatestArticles>
+      <Contact></Contact>
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
     <div className="bg-gray-100 min-h-screen py-8">
-      <div className="max-w-4xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         <header className="text-center mb-12">
           <h1 className="text-3xl font-semibold text-gray-800">
             About Legacy Library
@@ -102,9 +103,12 @@ const About = () => {
             discover. Together, let's celebrate our shared cultural heritage and
             preserve it for future generations.
           </p>
-          <button className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none">
+          <Link
+            to="/contact"
+            className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none"
+          >
             Contact Us
-          </button>
+          </Link>
         </section>
       </div>
     </div>

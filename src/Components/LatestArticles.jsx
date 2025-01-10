@@ -24,7 +24,7 @@ const LatestArticles = () => {
       title: "Unveiling the Secrets of Ancient Civilizations",
       description:
         "Discover the secrets behind ancient civilizations and their lasting impact on the world.",
-      link: "/articles/secrets-of-ancient-civilizations",
+      link: "https://medium.com/@g.shevtsov1989/unveiling-the-mysteries-of-ancient-civilizations-a-journey-through-time-74e4376199fa",
     },
     {
       title: "Exploring the Role of Museums in Education",
@@ -49,7 +49,13 @@ const LatestArticles = () => {
             <div key={index} className="bg-gray-100 shadow-lg rounded-lg p-6">
               <h3 className="text-xl font-semibold mb-4">{article.title}</h3>
               <p className="text-gray-700 mb-4">{article.description}</p>
-              <a className="text-blue-500 hover:underline">Read more</a>
+              <a
+                target="_blank"
+                href={article.link}
+                className="text-blue-500 hover:underline"
+              >
+                Read more
+              </a>
             </div>
           ))}
         </div>

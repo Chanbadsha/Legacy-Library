@@ -12,6 +12,7 @@ import ArtifactDetails from "../Pages/ArtifactDetails";
 import NotFoundPage from "../Pages/NotFoundPage";
 import ScrollToTop from "../Hooks/ScrollToTop";
 import About from "../Pages/About";
+import Contact from "../Pages/Contact";
 
 const router = createBrowserRouter([
   {
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
       },
     ],
   },

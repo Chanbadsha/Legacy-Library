@@ -34,6 +34,9 @@ const Navbar = () => {
       <li>
         <NavLink to="/about">About Us</NavLink>
       </li>
+      <li>
+        <NavLink to="/contact">Contact Us</NavLink>
+      </li>
       {!user && (
         <li>
           <NavLink to="/register">Register</NavLink>
