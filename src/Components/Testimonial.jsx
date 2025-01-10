@@ -125,7 +125,7 @@ const Testimonial = () => {
           What Our Visitors Say
         </h2>
         <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {testimonials.slice(0, 6).map((testimonial, index) => (
             <div
               key={index}
               className="bg-white animate__animated animate__zoomIn  shadow-lg rounded-lg p-6"

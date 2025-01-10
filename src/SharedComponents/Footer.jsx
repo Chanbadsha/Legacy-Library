@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -22,31 +23,24 @@ const Footer = () => {
             Providing reliable artifact data since 1992
           </p>
         </aside>
-        <nav>
-          <h6 className="footer-title">Artifacts & Services</h6>
-          <a className="link link-hover">Artifact Preservation</a>
-          <a className="link link-hover">Artifact Restoration</a>
-          <a className="link link-hover">Historical Research</a>
-          <a className="link link-hover">Exhibit Design</a>
-        </nav>
+
         <nav>
           <h6 className="footer-title">Company</h6>
-          <a className="link link-hover">About Us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Careers</a>
-          <a className="link link-hover">Press Kit</a>
+          <Link to="/about" className="link link-hover">
+            About Us
+          </Link>
+          <Link to="/all-artifacts" className="link link-hover">
+            All Artifacts
+          </Link>
+          <Link to="/contact" className="link link-hover">
+            Contact
+          </Link>
         </nav>
         <nav>
           <h6 className="footer-title">Legal</h6>
           <a className="link link-hover">Terms of Use</a>
           <a className="link link-hover">Privacy Policy</a>
           <a className="link link-hover">Cookie Policy</a>
-        </nav>
-        <nav>
-          <h6 className="footer-title">Stay Connected</h6>
-          <a className="link link-hover">Newsletter</a>
-          <a className="link link-hover">Blog</a>
-          <a className="link link-hover">Social Media</a>
         </nav>
       </footer>
     </div>
