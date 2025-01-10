@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import addLottie from "../assets/lottie/addPage.json";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const AddArtifacts = () => {
   const { user } = useAuth();
@@ -37,6 +38,9 @@ const AddArtifacts = () => {
 
   return (
     <div className=" bg-gray-100">
+      <Helmet>
+        <title>LegacyLibrary - Add Artifacts</title>
+      </Helmet>
       <header className="bg-blue-600 text-white py-6 text-center">
         <h1 className="text-3xl font-bold animate__animated animate__backInRight">
           Add New Artifact

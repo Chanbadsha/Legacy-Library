@@ -1,9 +1,13 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const About = () => {
   return (
     <div className="bg-gray-100 min-h-screen py-8">
+      <Helmet>
+        <title>LegacyLibrary - About</title>
+      </Helmet>
       <div className="max-w-7xl mx-auto px-4">
         <header className="text-center mb-12">
           <h1 className="text-3xl font-semibold text-gray-800">

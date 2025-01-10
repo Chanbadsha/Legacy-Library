@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import Swal from "sweetalert2";
 
@@ -23,6 +24,9 @@ const Contact = () => {
 
   return (
     <div className="max-w-7xl mx-auto my-12 px-6">
+      <Helmet>
+        <title>LegacyLibrary - Contact</title>
+      </Helmet>
       <h2 className="text-3xl font-semibold text-gray-800 text-center mb-8">
         Contact Us
       </h2>

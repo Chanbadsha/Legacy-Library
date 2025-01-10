@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import ArtifactCard from "../Components/ArtifactCard";
 import useAuth from "../Hooks/useAuth";
 import Loader from "../SharedComponents/Loader";
+import { Helmet } from "react-helmet";
 
 const AllArtifacts = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -27,6 +28,9 @@ const AllArtifacts = () => {
 
   return (
     <div className="max-w-7xl mx-auto">
+      <Helmet>
+        <title>LegacyLibrary - All Artifacts</title>
+      </Helmet>
       {/* Header Section */}
       <header className="py-8  bg-blue-600 text-white text-center">
         <h1 className="text-4xl font-bold animate__animated animate__backInLeft">

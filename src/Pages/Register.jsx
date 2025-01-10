@@ -6,6 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Loader from "../SharedComponents/Loader";
 import { FaFacebook, FaGoogle, FaTwitter } from "react-icons/fa";
 import "animate.css";
+import { Helmet } from "react-helmet";
 const Register = () => {
   const { user, setUser, createUser, loading, setLoading, handleGoogleSign } =
     useAuth();
@@ -113,6 +114,9 @@ const Register = () => {
       }}
       className="min-h-[calc(100vh-80px)]  flex items-center justify-center"
     >
+      <Helmet>
+        <title>LegacyLibrary - Register</title>
+      </Helmet>
       <div className="hero-content flex flex-col lg:flex-row items-center gap-2 p-6">
         {/* Info Section */}
         <div className="w-[80%]  animate__animated animate__backInLeft  lg:w-1/2 text-white space-y-6 relative p-8 rounded-lg">
