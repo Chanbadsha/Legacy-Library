@@ -1,9 +1,9 @@
 [
   {
     "artifactName": "Ancient Roman Coin",
-    "artifactImage": "https://i.ibb.co.com/XjnnWVP/Rome-Coin1.jpg",
+    "artifactImage": "https://i.ibb.co/XjnnWVP/Rome-Coin1.jpg",
     "artifactType": "Documents",
-    "historicalContext": "This coin was used as currency in ancient Rome and reflects the economic practices of the time.",
+    "historicalContext": "This coin was used as currency in ancient Rome, a critical aspect of the Roman Empire's economy. It reflects the diverse forms of trade, from local exchanges to international commerce, showcasing the development of monetary systems in antiquity. Coins like this were not only a medium of exchange but also symbols of the empire's power and reach.",
     "createdAt": "100 BC",
     "discoveredAt": "1799",
     "discoveredBy": "John Smith",
@@ -16,9 +16,9 @@
   },
   {
     "artifactName": "Medieval Sword",
-    "artifactImage": "https://i.ibb.co.com/4p9gp3M/Medieval-Sword1.jpg",
+    "artifactImage": "https://i.ibb.co/4p9gp3M/Medieval-Sword1.jpg",
     "artifactType": "Weapons",
-    "historicalContext": "This sword was used by knights during the medieval period and symbolizes chivalry and warfare.",
+    "historicalContext": "This sword was used by knights during the medieval period, a time characterized by feudalism and frequent warfare. It symbolizes the ideals of chivalry, including honor, bravery, and protection of the weak. The craftsmanship of such swords also reveals the advanced metalworking techniques of the time, as well as the importance of warfare in medieval society.",
     "createdAt": "1200 AD",
     "discoveredAt": "1850",
     "discoveredBy": "Emily Davis",
@@ -27,13 +27,13 @@
       "name": "Bob Brown",
       "email": "bob.brown@example.com"
     },
-    "liked": 0
+    "likeCount": 0
   },
   {
     "artifactName": "Ancient Egyptian Papyrus",
-    "artifactImage": "https://i.ibb.co.com/QXVThFG/Ancient-Egyptian-Papyrus1.jpg",
+    "artifactImage": "https://i.ibb.co/QXVThFG/Ancient-Egyptian-Papyrus1.jpg",
     "artifactType": "Writings",
-    "historicalContext": "This papyrus contains ancient Egyptian texts and provides insight into their culture and language.",
+    "historicalContext": "This papyrus contains ancient Egyptian texts, offering a glimpse into the culture, religion, and daily life of one of the world's oldest civilizations. The writings include religious texts, administrative records, and medical knowledge, providing valuable insights into the Egyptians' belief systems, governance, and advances in science and medicine.",
     "createdAt": "300 BC",
     "discoveredAt": "1922",
     "discoveredBy": "Howard Carter",
@@ -42,13 +42,13 @@
       "name": "Charlie Green",
       "email": "charlie.green@example.com"
     },
-    "liked": 6
+    "likeCount": 6
   },
   {
     "artifactName": "Incan Gold Mask",
-    "artifactImage": "https://i.ibb.co.com/B4GJ8gM/Incan-Gold-Mask1.jpg",
+    "artifactImage": "https://i.ibb.co/B4GJ8gM/Incan-Gold-Mask1.jpg",
     "artifactType": "Tools",
-    "historicalContext": "This mask was used in Incan rituals and represents the artistry of the civilization.",
+    "historicalContext": "This mask was used in Incan rituals, likely associated with religious ceremonies. It represents the artistic and spiritual achievements of the Inca civilization, with intricate goldwork that demonstrates their advanced metallurgical techniques. The mask also reflects the Inca's reverence for their deities and the role of ritual in their society.",
     "createdAt": "1500 AD",
     "discoveredAt": "1911",
     "discoveredBy": "Hiram Bingham",
@@ -57,13 +57,13 @@
       "name": "David White",
       "email": "david.white@example.com"
     },
-    "liked": 9
+    "likeCount": 9
   },
   {
     "artifactName": "Viking Shield",
-    "artifactImage": "https://i.ibb.co.com/1dYX0CL/Viking-Shield1.jpg",
+    "artifactImage": "https://i.ibb.co/1dYX0CL/Viking-Shield1.jpg",
     "artifactType": "Weapons",
-    "historicalContext": "This shield was used by Vikings in battle and showcases their craftsmanship.",
+    "historicalContext": "This shield was used by Vikings in battle, representing the fierce warrior culture of the Norse people. The shield's design and craftsmanship also reflect the Viking's values of bravery, honor, and protection of their communities. It is a testament to their expertise in warfare and their social structure, where warriors held a crucial role in society.",
     "createdAt": "800 AD",
     "discoveredAt": "1852",
     "discoveredBy": "Archaeologists in Norway",
@@ -72,13 +72,13 @@
       "name": "Eva Black",
       "email": "eva.black@example.com"
     },
-    "liked": 0
+    "likeCount": 0
   },
   {
     "artifactName": "Renaissance Painting",
-    "artifactImage": "https://i.ibb.co.com/QPmDW9m/Renaissance-Painting1.jpg",
+    "artifactImage": "https://i.ibb.co/QPmDW9m/Renaissance-Painting1.jpg",
     "artifactType": "Documents",
-    "historicalContext": "This painting represents the artistic achievements of the Renaissance period.",
+    "historicalContext": "This painting is a representation of the artistic achievements of the Renaissance, a period that marked a revival of classical ideals and a profound transformation in European art. The use of perspective, light, and human anatomy in Renaissance art reflected a new understanding of the world, shaping future generations of artists and thinkers.",
     "createdAt": "1500 AD",
     "discoveredAt": "Unknown",
     "discoveredBy": "Unknown",
@@ -87,13 +87,13 @@
       "name": "Frank Blue",
       "email": "frank.blue@example.com"
     },
-    "liked": 0
+    "likeCount": 0
   },
   {
     "artifactName": "Ancient Greek Vase",
-    "artifactImage": "https://i.ibb.co.com/LdXPXrG/Ancient-Greek-Vase1.jpg",
+    "artifactImage": "https://i.ibb.co/LdXPXrG/Ancient-Greek-Vase1.jpg",
     "artifactType": "Tools",
-    "historicalContext": "This vase was used in ancient Greek ceremonies and reflects their artistic style.",
+    "historicalContext": "This vase was used in ancient Greek ceremonies, such as those related to worship and funerary practices. Its intricate designs and depictions of gods, heroes, and everyday life highlight the artistic achievements of the Greeks, as well as their cultural and religious values. Greek pottery was not only a functional item but also a form of artistic expression.",
     "createdAt": "500 BC",
     "discoveredAt": "1800",
     "discoveredBy": "Archaeologists in Greece",
@@ -102,6 +102,111 @@
       "name": "Grace Red",
       "email": "grace.red@example.com"
     },
-    "liked": 0
+    "likeCount": 0
+  },
+  {
+    "artifactName": "Ancient Chinese Scroll",
+    "artifactImage": "https://i.ibb.co.com/BVPf6kzW/image.png",
+    "artifactType": "Writings",
+    "historicalContext": "This scroll contains ancient Chinese calligraphy, providing insight into the philosophical and cultural traditions of ancient China. It represents the deep intellectual heritage of Chinese civilization, encompassing teachings on morality, governance, and the natural world. Chinese scrolls were also an important medium for recording history and transmitting knowledge across generations.",
+    "createdAt": "500 BC",
+    "discoveredAt": "1932",
+    "discoveredBy": "Li Wei",
+    "presentLocation": "Shanghai Museum",
+    "artifactAdder": {
+      "name": "Liu Zhang",
+      "email": "liu.zhang@example.com"
+    },
+    "likeCount": 4
+  },
+  {
+    "artifactName": "Mayan Temple Stone",
+    "artifactImage": "https://i.ibb.co.com/CG0K5gg/image.png",
+    "artifactType": "Architecture",
+    "historicalContext": "This stone was part of a Mayan temple, reflecting the advanced architectural and religious practices of the Maya civilization. The stone features intricate carvings that may have served both as religious icons and as records of Mayan history. Mayan architecture, such as temples and pyramids, was designed to honor their gods and mark important celestial events.",
+    "createdAt": "800 AD",
+    "discoveredAt": "1900",
+    "discoveredBy": "Carlos Pérez",
+    "presentLocation": "National Museum of Anthropology, Mexico",
+    "artifactAdder": {
+      "name": "Antonio Garcia",
+      "email": "antonio.garcia@example.com"
+    },
+    "likeCount": 5
+  },
+  {
+    "artifactName": "Samurai Armor",
+    "artifactImage": "https://i.ibb.co.com/TxHdKNKQ/image.png",
+    "artifactType": "Weapons",
+    "historicalContext": "This armor was worn by samurais during Japan's feudal period. It represents the warrior class known for their discipline, loyalty, and skill in combat. Samurai armor was not only a functional piece of equipment but also a symbol of the samurai's honor and status within society. The intricate craftsmanship reflects the cultural significance of warfare in Japan's history.",
+    "createdAt": "1600 AD",
+    "discoveredAt": "1855",
+    "discoveredBy": "Takashi Yoshida",
+    "presentLocation": "Tokyo National Museum",
+    "artifactAdder": {
+      "name": "Hiroshi Tanaka",
+      "email": "hiroshi.tanaka@example.com"
+    },
+    "likeCount": 8
+  },
+  {
+    "artifactName": "Aztec Sun Stone",
+    "artifactImage": "https://i.ibb.co.com/bgdhtWW4/image.png",
+    "artifactType": "Tools",
+    "historicalContext": "This stone, also known as the Aztec Calendar Stone, represents the Aztec understanding of time and astronomy. It was used in religious rituals, with its intricate carvings symbolizing the Aztec worldview and their connection to the cosmos. The calendar was integral to Aztec life, influencing everything from agriculture to religious ceremonies.",
+    "createdAt": "1500 AD",
+    "discoveredAt": "1790",
+    "discoveredBy": "Antonio de León",
+    "presentLocation": "National Museum of Anthropology, Mexico",
+    "artifactAdder": {
+      "name": "Julio Ruiz",
+      "email": "julio.ruiz@example.com"
+    },
+    "likeCount": 7
+  },
+  {
+    "artifactName": "Persian Sword",
+    "artifactImage": "https://i.ibb.co.com/PGz8FLkn/image.png",
+    "artifactType": "Weapons",
+    "historicalContext": "This sword was used by Persian warriors, reflecting the military strength and craftsmanship of the ancient Persian Empire. Persian swords were highly valued for their sharpness and design, often used in battle by the elite warriors known as the immortals. The sword also symbolizes Persian art and culture, with elaborate engravings and ornamentation.",
+    "createdAt": "500 BC",
+    "discoveredAt": "1860",
+    "discoveredBy": "Ali Jafari",
+    "presentLocation": "Tehran Museum of Historical Arts",
+    "artifactAdder": {
+      "name": "Mohammad Reza",
+      "email": "mohammad.reza@example.com"
+    },
+    "likeCount": 2
+  },
+  {
+    "artifactName": "Ming Dynasty Vase",
+    "artifactImage": "https://i.ibb.co.com/Q3MCcPz0/image.png",
+    "artifactType": "Tools",
+    "historicalContext": "This vase reflects the exquisite ceramic artistry of the Ming Dynasty, a period known for its flourishing trade, culture, and innovation in China. Ming vases were highly sought after worldwide for their beauty and craftsmanship, often used as symbols of status and wealth. The vibrant blue-and-white designs on this vase showcase the refinement of Ming porcelain.",
+    "createdAt": "1400 AD",
+    "discoveredAt": "1910",
+    "discoveredBy": "Li Wei",
+    "presentLocation": "National Palace Museum, Taipei",
+    "artifactAdder": {
+      "name": "Jing Li",
+      "email": "jing.li@example.com"
+    },
+    "likeCount": 3
+  },
+  {
+    "artifactName": "Etruscan Bronze Mirror",
+    "artifactImage": "https://i.ibb.co.com/hxCsDg7J/image.png",
+    "artifactType": "Tools",
+    "historicalContext": "This bronze mirror was used by the Etruscans, an ancient civilization in Italy, and provides a glimpse into their daily life, art, and craftsmanship. The mirror features intricate designs that reflect Etruscan culture, including depictions of mythological scenes and everyday activities. It serves as a testament to the Etruscans' advanced metalworking techniques and their appreciation for beauty.",
+    "createdAt": "500 BC",
+    "discoveredAt": "1903",
+    "discoveredBy": "Giovanni Rossi",
+    "presentLocation": "Etruscan Museum, Rome",
+    "artifactAdder": {
+      "name": "Valeria Neri",
+      "email": "valeria.neri@example.com"
+    },
+    "likeCount": 1
   }
 ]
