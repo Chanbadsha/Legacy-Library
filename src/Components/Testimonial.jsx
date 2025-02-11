@@ -1,6 +1,8 @@
 import React from "react";
 import { CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
+import { motion } from "framer-motion"; // Importing framer motion
+import "animate.css"; // Importing Animate.css
 
 const Testimonial = () => {
   const testimonials = [
@@ -12,62 +14,6 @@ const Testimonial = () => {
       profileImage: "https://i.ibb.co.com/9T3GT61/female2.jpg",
       stars: 5,
     },
-    // {
-    //   name: "Liam Smith",
-    //   feedback:
-    //     "The Legacy Library offers a truly immersive experience for history enthusiasts.",
-    //   location: "London, UK",
-    //   profileImage: "https://i.ibb.co.com/qDj4R3b/male1.jpg",
-    //   stars: 4,
-    // },
-    // {
-    //   name: "Sophia Johnson",
-    //   feedback:
-    //     "An exceptional place to explore historical artifacts and learn about their stories.",
-    //   location: "Sydney, Australia",
-    //   profileImage: "https://i.ibb.co.com/gPksw4K/female3.jpg",
-    //   stars: 5,
-    // },
-    // {
-    //   name: "Michael Brown",
-    //   feedback:
-    //     "An unparalleled resource for understanding ancient history. Highly recommend exploring the Legacy Library!",
-    //   location: "Toronto, Canada",
-    //   profileImage: "https://i.ibb.co.com/3CVDZ5Y/male2.jpg",
-    //   stars: 4,
-    // },
-    // {
-    //   name: "Ava Wilson",
-    //   feedback:
-    //     "Beautifully presented artifacts with detailed insights. A must-visit for history lovers!",
-    //   location: "Berlin, Germany",
-    //   profileImage: "https://i.ibb.co.com/d4SP56h/female4.jpg",
-    //   stars: 5,
-    // },
-    // {
-    //   name: "James Lee",
-    //   feedback:
-    //     "The collection of rare books is incredible, and the exhibits provide fascinating historical context.",
-    //   location: "Los Angeles, USA",
-    //   profileImage: "https://i.ibb.co.com/qDj4R3b/male1.jpg",
-    //   stars: 5,
-    // },
-    // {
-    //   name: "Isabella Williams",
-    //   feedback:
-    //     "A truly enriching experience for anyone interested in ancient civilizations and history.",
-    //   location: "Paris, France",
-    //   profileImage: "https://i.ibb.co.com/VJTzkC3/female5.jpg",
-    //   stars: 4,
-    // },
-    // {
-    //   name: "Benjamin Davis",
-    //   feedback:
-    //     "I learned so much about the ancient world. The museum is well-organized and easy to navigate.",
-    //   location: "San Francisco, USA",
-    //   profileImage: "https://i.ibb.co.com/MSqQgtS/male3.jpg",
-    //   stars: 5,
-    // },
     {
       name: "Charlotte Miller",
       feedback:
@@ -124,13 +70,19 @@ const Testimonial = () => {
         <h2 className="text-3xl font-bold text-center mb-8">
           What Our Visitors Say
         </h2>
-        <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.slice(0, 6).map((testimonial, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white animate__animated animate__zoomIn  shadow-lg rounded-lg p-6"
+              className="bg-white shadow-lg rounded-lg p-6 testimonial-card"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.1, // Adding a slight delay between each card
+              }}
             >
-              <div className="flex flex-col gap-2 ">
+              <div className="flex flex-col gap-2">
                 {/* Left Side: Profile Image and Name */}
                 <div className="flex items-center">
                   <img
@@ -154,7 +106,7 @@ const Testimonial = () => {
                       <span
                         key={i}
                         className={`text-yellow-500 ${
-                          i < testimonial.stars ? <CiStar /> : <FaStar />
+                          i < testimonial.stars ? "animate__animated animate__pulse" : ""
                         }`}
                       >
                         {i < testimonial.stars ? "★" : "☆"}
@@ -163,7 +115,7 @@ const Testimonial = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { motion } from "framer-motion";
+import "animate.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -27,9 +29,17 @@ const Contact = () => {
       <Helmet>
         <title>LegacyLibrary - Contact</title>
       </Helmet>
-      <h2 className="text-3xl font-semibold text-gray-800 text-center mb-8">
+      
+      {/* Title Animation */}
+      <motion.h2
+        className="text-3xl pt-4 font-semibold text-gray-800 text-center mb-8 animate__animated animate__fadeIn"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         Contact Us
-      </h2>
+      </motion.h2>
+
       <p className="text-center text-gray-600 mb-12">
         If you have any questions or want to get in touch, feel free to drop us
         a message.
@@ -37,7 +47,12 @@ const Contact = () => {
 
       <div className="flex flex-col md:flex-row items-center justify-between gap-12">
         {/* Left Side - Contact Form */}
-        <div className="w-full md:w-1/2">
+        <motion.div
+          className="w-full md:w-1/2"
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{ type: "spring", stiffness: 100 }}
+        >
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label
@@ -126,16 +141,21 @@ const Contact = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Side - Image */}
-        <div className="w-full md:w-1/2">
+        <motion.div
+          className="w-full md:w-1/2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+        >
           <img
             src="https://i.ibb.co.com/LCqbmZw/Email-campaign-bro.png"
             alt="Legacy Library"
-            className="w-full h-full object-cover rounded-lg shadow-lg"
+            className="w-full h-full object-cover rounded-lg shadow-lg animate__animated animate__fadeInUp"
           />
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -8,8 +8,8 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import useAuth from "../Hooks/useAuth";
 import Loader from "../SharedComponents/Loader";
 import Slider from "./Slider";
-import { motion } from "framer-motion"; // Importing framer motion
-import "animate.css"; // Importing animate.css
+import { motion } from "framer-motion"; 
+import "animate.css"; 
 
 const Hero = () => {
   const { loading, setLoading } = useAuth();
