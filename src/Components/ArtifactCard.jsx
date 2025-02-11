@@ -41,11 +41,11 @@ const ArtifactCard = ({ artifactData }) => {
 
         <p className="text-sm flex-1 flex gap-1  mt-2">
           <span className="font-semibold">Location:</span>{" "}
-          {presentLocation ? presentLocation : "N/A"}
+          {presentLocation ? presentLocation.slice(0,20) : "N/A"}
         </p>
         <p className="text-sm text-gray-700 mt-4">
           {" "}
-          {historicalContext ? historicalContext : "N/A"}
+          {historicalContext ? historicalContext.slice(0,100) : "N/A"}
         </p>
       </div>
       <div className=" px-6 py-3 fle  border-t border-blue-200">

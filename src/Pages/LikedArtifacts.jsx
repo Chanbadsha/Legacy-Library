@@ -3,6 +3,8 @@ import useAuth from "../Hooks/useAuth";
 import axios from "axios";
 import { CiStar } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion"; // Import framer-motion
+import "animate.css"; // Import animate.css
 
 import Loader from "../SharedComponents/Loader";
 
@@ -18,11 +20,11 @@ const LikedArtifacts = () => {
   const handleView = (id) => {
     navigate(`/artifactsDetail/${id}`);
   };
+
   useEffect(() => {
     axios
       .get(
         `https://assginment-11-server-rho.vercel.app/liked-artifacts?email=${user.email}`,
-
         {
           withCredentials: true,
         }
@@ -42,16 +44,21 @@ const LikedArtifacts = () => {
   };
 
   return (
-    <div className="bg-gray-50 pb-8  ">
+    <div className="bg-gray-50 pb-8">
       <header
-        className="text-center  py-16"
+        className="text-center py-16"
         style={{
           backgroundImage: "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)",
         }}
       >
-        <h1 className="text-4xl font-extrabold text-white leading-tight mb-4">
+        <motion.h1
+          className="text-4xl font-extrabold text-white leading-tight mb-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
           My Liked Artifacts
-        </h1>
+        </motion.h1>
         <p className="lg:text-xl px-2 text-white mt-4 max-w-3xl mx-auto">
           Explore the artifacts you've liked. You can view or dislike your own
           liked artifact, and see the collection of historical treasures.
@@ -75,29 +82,40 @@ const LikedArtifacts = () => {
             </button>
           </div>
         ) : (
-          <ul className="divide-y divide-gray-200 grid lg:grid-cols-2 gap-4">
+          <motion.ul
+            className="divide-y divide-gray-200 grid lg:grid-cols-2 gap-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
             {MyArtifact.map((artifact, index) => (
-              <li
+              <motion.li
                 key={index}
-                className="py-6 px-3  flex gap-4 md:gap-0 justify-between flex-col md:flex-row items-start hover:bg-gray-100"
+                className="py-6 px-3 flex gap-4 md:gap-0 justify-between flex-col md:flex-row items-start hover:bg-gray-100 animate__animated animate__fadeIn"
                 style={{
                   backgroundImage:
                     "linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%)",
                   borderRadius: "1rem",
                 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
               >
                 {/* Artifact Image */}
                 <div className="w-full md:w-1/4 h-48 mr-6">
-                  <img
+                  <motion.img
                     src={artifact.artifactImage}
                     alt={artifact.artifactName}
                     className="w-full h-full rounded-lg shadow-lg transform transition duration-500 hover:scale-105"
+                    initial={{ scale: 0.9 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.5 }}
                   />
                 </div>
 
-                <div className="md:w-3/4 flex-1 flex flex-col  gap-3">
+                <div className="md:w-3/4 flex-1 flex flex-col gap-3">
                   {/* Artifact Details */}
-                  <div className="">
+                  <div>
                     <h2 className="text-xl font-semibold text-gray-800 mb-2">
                       {artifact.artifactName}
                     </h2>
@@ -107,15 +125,17 @@ const LikedArtifacts = () => {
                   </div>
 
                   {/* Artifact Actions */}
-                  <div className="flex flex-col justify-between  space-y-4">
+                  <div className="flex flex-col justify-between space-y-4">
                     <div className="flex space-x-4">
-                      <button
+                      <motion.button
                         onClick={() => handleView(artifact._id)}
                         className="bg-green-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-green-600 transition duration-300 transform hover:scale-105"
+                        whileHover={{ scale: 1.1 }}
                       >
                         View
-                      </button>
+                      </motion.button>
                     </div>
+
                     {/* Like Count */}
                     <div className="flex items-center space-x-2 text-gray-700">
                       <span className="text-2xl">
@@ -127,9 +147,9 @@ const LikedArtifacts = () => {
                     </div>
                   </div>
                 </div>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         )}
       </main>
     </div>

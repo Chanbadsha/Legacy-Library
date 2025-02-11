@@ -7,6 +7,8 @@ import EditArtifactsModal from "../Modal/EditArtifactsModal";
 
 import Swal from "sweetalert2";
 import Loader from "../SharedComponents/Loader";
+import { motion } from "framer-motion"; // Import Framer Motion
+import "animate.css"; // Import Animate.css
 
 const MyArtifacts = () => {
   const { user, loading, setModalArtifact, setIsButtonDisabled } = useAuth();
@@ -43,6 +45,7 @@ const MyArtifacts = () => {
   const handleView = (id) => {
     navigate(`/artifactsDetail/${id}`);
   };
+
   useEffect(() => {
     const fetchArtifacts = async () => {
       try {
@@ -52,7 +55,6 @@ const MyArtifacts = () => {
             withCredentials: true,
           }
         );
-        // console.log(response);
         setMyArtifact(response.data);
       } catch (error) {
         console.error("Failed to fetch artifacts:", error.message);
@@ -74,9 +76,9 @@ const MyArtifacts = () => {
   };
 
   return (
-    <div className="bg-gray-50 pb-8  ">
+    <div className="bg-gray-50 pb-8">
       <header
-        className="text-center  py-16"
+        className="text-center py-16"
         style={{
           backgroundImage: "linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)",
         }}
@@ -109,16 +111,24 @@ const MyArtifacts = () => {
             </button>
           </div>
         ) : (
-          <ul className="divide-y divide-gray-200 grid lg:grid-cols-2 gap-4">
+          <motion.ul
+            className="divide-y divide-gray-200 grid lg:grid-cols-2 gap-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
             {MyArtifact.map((artifact, index) => (
-              <li
+              <motion.li
                 key={index}
-                className="py-6 px-3  flex gap-4 md:gap-0 justify-between flex-col md:flex-row items-start hover:bg-gray-100"
+                className="py-6 px-3 flex gap-4 md:gap-0 justify-between flex-col md:flex-row items-start hover:bg-gray-100 animate__animated animate__fadeIn animate__delay-1s"
                 style={{
                   backgroundImage:
                     "linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%)",
                   borderRadius: "1rem",
                 }}
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.3 }}
               >
                 {/* Artifact Image */}
                 <div className="w-full md:w-1/4 h-48 mr-6">
@@ -129,7 +139,7 @@ const MyArtifacts = () => {
                   />
                 </div>
 
-                <div className="md:w-3/4 flex-1 flex flex-col  gap-3">
+                <div className="md:w-3/4 flex-1 flex flex-col gap-3">
                   {/* Artifact Details */}
                   <div className="">
                     <h2 className="text-xl font-semibold text-gray-800 mb-2">
@@ -141,7 +151,7 @@ const MyArtifacts = () => {
                   </div>
 
                   {/* Artifact Actions */}
-                  <div className="flex flex-col justify-between  space-y-4">
+                  <div className="flex flex-col justify-between space-y-4">
                     <div className="flex space-x-4">
                       <button
                         onClick={() => handleView(artifact._id)}
@@ -174,9 +184,9 @@ const MyArtifacts = () => {
                     </div>
                   </div>
                 </div>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         )}
       </main>
     </div>
