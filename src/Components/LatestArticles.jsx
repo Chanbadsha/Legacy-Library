@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import "animate.css";
 
 const LatestArticles = () => {
   const articles = [
@@ -46,17 +48,27 @@ const LatestArticles = () => {
         <h2 className="text-3xl font-bold text-center mb-8">Latest Articles</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {articles.map((article, index) => (
-            <div key={index} className="bg-gray-100 shadow-lg rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-4">{article.title}</h3>
-              <p className="text-gray-700 mb-4">{article.description}</p>
+            <motion.div
+              key={index}
+              className="bg-gray-100 shadow-lg rounded-lg p-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: index * 0.2, duration: 0.5 }}
+            >
+              <h3 className="text-xl font-semibold mb-4 animate__animated animate__fadeIn">
+                {article.title}
+              </h3>
+              <p className="text-gray-700 mb-4 animate__animated animate__fadeIn">
+                {article.description}
+              </p>
               <a
                 target="_blank"
                 href={article.link}
-                className="text-blue-500 hover:underline"
+                className="text-blue-500 hover:underline animate__animated animate__fadeIn animate__delay-1s"
               >
                 Read more
               </a>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

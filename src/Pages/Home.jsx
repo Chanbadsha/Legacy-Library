@@ -14,7 +14,7 @@ const Home = () => {
       <Helmet>
         <title>LegacyLibrary - Home</title>
       </Helmet>
-      {/* <Hero></Hero> */}
+      <Hero></Hero>
 
       <FeaturedArtifacts />
       <About></About>

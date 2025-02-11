@@ -128,25 +128,25 @@ const About = () => {
             <motion.img
               src="https://i.ibb.co/nf3NPtg/epiphany-day-treasure-chest-with-stones-magus.jpg"
               alt="Artifact Example 1"
-              className="w-80 h-52 object-cover rounded-lg shadow-lg"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              className="w-80 h-52 object-cover rounded-lg shadow-lg animate__animated animate__bounceIn"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 4, duration: 1 }}
             />
             <motion.img
               src="https://i.ibb.co/k8Twy6Z/inca-mayan-design-sculpted-stones.jpg"
               alt="Artifact Example 2"
-              className="w-80 h-52 object-fit rounded-lg shadow-lg"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              className="w-80 h-52 object-fit rounded-lg shadow-lg animate__animated animate__zoomIn"
+              initial={{ opacity: 0, rotate: 90 }}
+              animate={{ opacity: 1, rotate: 0 }}
               transition={{ delay: 4.5, duration: 1 }}
             />
             <motion.img
               src="https://i.ibb.co/Xt1sQmL/inca-mayan-design-sculpted-stones-1.jpg"
               alt="Artifact Example 3"
-              className="w-80 h-52 object-fit rounded-lg shadow-lg"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              className="w-80 h-52 object-fit rounded-lg shadow-lg animate__animated animate__fadeInUp"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 5, duration: 1 }}
             />
           </div>
