@@ -9,6 +9,15 @@ const About = () => {
         <title>LegacyLibrary - About</title>
       </Helmet>
       <div className="max-w-7xl mx-auto px-4">
+        <header className="text-center mb-12">
+          <h1 className="text-3xl font-semibold text-gray-800">
+            About Legacy Library
+          </h1>
+          <p className="mt-2 text-lg text-gray-600">
+            Discover the wonders of ancient artifacts and explore history like
+            never before.
+          </p>
+        </header>
 
         <section className="mb-12">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">
